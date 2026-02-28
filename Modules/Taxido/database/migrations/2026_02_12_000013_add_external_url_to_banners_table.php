@@ -1,0 +1,30 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     * 
+     * Adds external_url field to banners for clickable banner links.
+     */
+    public function up(): void
+    {
+        Schema::table('banners', function (Blueprint $table) {
+            $table->string('external_url', 500)->nullable()->after('order');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('banners', function (Blueprint $table) {
+            $table->dropColumn('external_url');
+        });
+    }
+};
