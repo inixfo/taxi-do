@@ -1051,21 +1051,42 @@ if (!function_exists('pushNotification')) {
 if (! function_exists('getFirebaseJson')) {
     function getFirebaseJson()
     {
-        $firebaseJson = json_decode(file_get_contents(public_path('admin/assets/firebase.json')), true);
-        return $firebaseJson;
+        $firebasePath = public_path('admin/assets/firebase.json');
+        if (!file_exists($firebasePath)) {
+            Log::warning('Firebase config file not found at: ' . $firebasePath);
+            return null;
+        }
+        try {
+            $firebaseJson = json_decode(file_get_contents($firebasePath), true);
+            return $firebaseJson;
+        } catch (Exception $e) {
+            Log::error('Failed to read Firebase config: ' . $e->getMessage());
+            return null;
+        }
     }
 }
 
 if (! function_exists('getFCMAccessToken')) {
     function getFCMAccessToken()
     {
-        $client = new Google_Client();
-        $client->setAuthConfig(public_path('admin/assets/firebase.json'));
-        $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
-        $client->refreshTokenWithAssertion();
-        $token = $client->getAccessToken();
+        $firebasePath = public_path('admin/assets/firebase.json');
+        if (!file_exists($firebasePath)) {
+            Log::warning('Firebase config file not found. FCM notifications will not work.');
+            return null;
+        }
+        
+        try {
+            $client = new Google_Client();
+            $client->setAuthConfig($firebasePath);
+            $client->addScope('https://www.googleapis.com/auth/firebase.messaging');
+            $client->refreshTokenWithAssertion();
+            $token = $client->getAccessToken();
 
-        return $token['access_token'];
+            return $token['access_token'];
+        } catch (Exception $e) {
+            Log::error('Failed to get FCM access token: ' . $e->getMessage());
+            return null;
+        }
     }
 }
 

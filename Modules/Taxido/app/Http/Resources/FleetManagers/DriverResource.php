@@ -25,7 +25,7 @@ class DriverResource  extends BaseResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'profile_image_url' => $this->profile_image?->original_url,
+            'profile_image_url' => getFullImageUrl($this->profile_image?->original_url),
             'service_id' => $this->service_id,
             'service_category_id' => $this->service_category_id,
             'country_code' => $this->country_code,
