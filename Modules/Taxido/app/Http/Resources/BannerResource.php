@@ -20,7 +20,7 @@ class BannerResource  extends BaseResource
             'id' => $this->id,
             'title' => $this->title,
             'order' => $this->order,
-            'banner_image_url' => $this->banner_image?->original_url,
+            'banner_image_url' => getFullImageUrl($this->banner_image?->original_url),
             'external_url' => $this->external_url,
             'is_clickable' => $this->is_clickable,
         ];

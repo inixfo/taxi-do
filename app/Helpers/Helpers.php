@@ -1203,4 +1203,21 @@ if (! function_exists('add_menu')) {
             return $datetime->format($format);
         }
     }
+
+    if (! function_exists('getFullImageUrl')) {
+        function getFullImageUrl($path)
+        {
+            if (empty($path)) {
+                return null;
+            }
+            
+            // If already absolute URL, return as-is
+            if (filter_var($path, FILTER_VALIDATE_URL)) {
+                return $path;
+            }
+            
+            // Convert relative path to absolute URL
+            return url($path);
+        }
+    }
 }

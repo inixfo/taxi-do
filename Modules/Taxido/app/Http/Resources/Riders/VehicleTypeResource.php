@@ -28,8 +28,8 @@ class VehicleTypeResource extends BaseResource
             'currency_code' => $this->currency_code,
             'max_seat' => $this->max_seat,
             'seat' => $this->max_seat,
-            'vehicle_image_url' => $this->vehicle_image?->original_url,
-            'vehicle_map_icon_url' => $this->vehicle_map_icon?->original_url,
+            'vehicle_image_url' => getFullImageUrl($this->vehicle_image?->original_url),
+            'vehicle_map_icon_url' => getFullImageUrl($this->vehicle_map_icon?->original_url),
             'vehicle_type_zone' => [],
             'charges' => $this->charges ?? [],
         ];
