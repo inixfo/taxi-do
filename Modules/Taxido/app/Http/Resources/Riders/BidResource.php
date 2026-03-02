@@ -28,14 +28,14 @@ class BidResource  extends BaseResource
             'driver' => [
                 'id' => $this->driver?->id,
                 'name' => $this->driver?->name,
-                'profile_image_url' => $this->driver?->profile_image?->original_url,
+                'profile_image_url' => getFullImageUrl($this->driver?->profile_image?->original_url),
                 'rating_count' => $this->driver?->rating_count,
                 'review_count' => $this->driver?->review_count,
             ],
             'vehicle_info' => [
                 'vehicle_type_id' => $this->driver?->vehicle_info?->vehicle_type_id,
-                'vehicle_type_image_url' => $this->driver?->vehicle_info?->vehicle?->vehicle_image?->original_url,
-                'vehicle_type_map_icon_url' => $this->driver?->vehicle_info?->vehicle?->vehicle_map_icon?->original_url,
+                'vehicle_type_image_url' => getFullImageUrl($this->driver?->vehicle_info?->vehicle?->vehicle_image?->original_url),
+                'vehicle_type_map_icon_url' => getFullImageUrl($this->driver?->vehicle_info?->vehicle?->vehicle_map_icon?->original_url),
                 'name' => $this->driver?->vehicle_info?->name,
                 'description' => $this->driver?->vehicle_info?->description,
                 'plate_number' => $this->driver?->vehicle_info?->plate_number,

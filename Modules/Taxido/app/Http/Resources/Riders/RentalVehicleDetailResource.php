@@ -50,7 +50,7 @@ class RentalVehicleDetailResource  extends BaseResource
       'zone' => $this->zone,
       'driver' => [
             'name' => $this->driver?->name,
-            'driver_profile_image_url' => $this->driver?->profile_image?->original_url,
+            'driver_profile_image_url' => getFullImageUrl($this->driver?->profile_image?->original_url),
             'rating_count' => $this->driver?->rating_count,
             'review_count' => $this->driver?->review_count,
         ],
@@ -61,7 +61,7 @@ class RentalVehicleDetailResource  extends BaseResource
         'id' => $this->boot_view?->id,
         'file_name' => $this->boot_view?->file_name,
         'mime_type' => $this->boot_view?->mime_type,
-        'original_url' => $this->boot_view?->original_url,
+        'original_url' => getFullImageUrl($this->boot_view?->original_url),
       ];
     }
 
@@ -70,7 +70,7 @@ class RentalVehicleDetailResource  extends BaseResource
         'id' => $this->interior_image?->id,
         'file_name' => $this->interior_image?->file_name,
         'mime_type' => $this->interior_image?->mime_type,
-        'original_url' => $this->interior_image?->original_url,
+        'original_url' => getFullImageUrl($this->interior_image?->original_url),
       ];
     }
 
@@ -79,7 +79,7 @@ class RentalVehicleDetailResource  extends BaseResource
         'id' => $this->normal_image?->id,
         'file_name' => $this->normal_image?->file_name,
         'mime_type' => $this->normal_image?->mime_type,
-        'original_url' => $this->normal_image?->original_url,
+        'original_url' => getFullImageUrl($this->normal_image?->original_url),
       ];
     }
 
@@ -88,7 +88,7 @@ class RentalVehicleDetailResource  extends BaseResource
         'id' => $this->side_view?->id,
         'file_name' => $this->side_view?->file_name,
         'mime_type' => $this->side_view?->mime_type,
-        'original_url' => $this->side_view?->original_url,
+        'original_url' => getFullImageUrl($this->side_view?->original_url),
       ];
     }
 
@@ -97,7 +97,7 @@ class RentalVehicleDetailResource  extends BaseResource
         'id' => $this->front_view?->id,
         'file_name' => $this->front_view?->file_name,
         'mime_type' => $this->front_view?->mime_type,
-        'original_url' => $this->front_view?->original_url,
+        'original_url' => getFullImageUrl($this->front_view?->original_url),
       ];
     }
 
@@ -106,7 +106,7 @@ class RentalVehicleDetailResource  extends BaseResource
         'id' => $this->registration_image?->id,
         'file_name' => $this->registration_image?->file_name,
         'mime_type' => $this->registration_image?->mime_type,
-        'original_url' => $this->registration_image?->original_url,
+        'original_url' => getFullImageUrl($this->registration_image?->original_url),
       ];
     }
 

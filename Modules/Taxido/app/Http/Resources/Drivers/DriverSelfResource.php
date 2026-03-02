@@ -24,7 +24,7 @@ class DriverSelfResource  extends BaseResource
             'name' => $this->name,
             'role' => $this->role?->name,
             'email' => $this->email,
-            'profile_image_url' => $this->profile_image?->original_url,
+            'profile_image_url' => getFullImageUrl($this->profile_image?->original_url),
             'profile_image_id' => $this->profile_image_id,
             'phone' => $this->phone,
             'is_verified' => $this->is_verified,
@@ -45,8 +45,8 @@ class DriverSelfResource  extends BaseResource
             'preferences' => [],
             'vehicle_info' => [
                 'vehicle_type_id' => $this->vehicle_info?->vehicle_type_id,
-                'vehicle_type_image_url' => $this->vehicle_info?->vehicle?->vehicle_image?->original_url,
-                'vehicle_type_map_icon_url' => $this->vehicle_info?->vehicle?->vehicle_map_icon?->original_url,
+                'vehicle_type_image_url' => getFullImageUrl($this->vehicle_info?->vehicle?->vehicle_image?->original_url),
+                'vehicle_type_map_icon_url' => getFullImageUrl($this->vehicle_info?->vehicle?->vehicle_map_icon?->original_url),
                 'name' => $this->ambulance?->name,
                 'description' => $this->ambulance?->description,
                 'plate_number' => $this->vehicle_info?->plate_number,
@@ -66,7 +66,7 @@ class DriverSelfResource  extends BaseResource
                 'name' => $this->fleet_manager?->name,
                 'email' => $this->fleet_manager?->email,
                 'phone' => $this->fleet_manager?->phone,
-                'profile_image_url' => $this->fleet_manager?->profile_image?->original_url,
+                'profile_image_url' => getFullImageUrl($this->fleet_manager?->profile_image?->original_url),
             ],
             'documents' => DriverDocumentResource::collection($this->documents ?? [])
         ];

@@ -26,7 +26,7 @@ class ServiceCategoryResource extends BaseResource
       'service_id' => $this->service_id,
       'type' => $this->type,
       'service_type' => $this->service?->type,
-      'service_category_image_url' => $this->service_category_image?->original_url,
+      'service_category_image_url' => getFullImageUrl($this->service_category_image?->original_url),
     ];
   }
 }

@@ -22,7 +22,7 @@ class DriverDocumentResource  extends BaseResource
             'id' => $this->id,
             'status' => $this->status,
             'expired_at' => $this->expired_at,
-            'document_image_url' => $this->document_image?->original_url,
+            'document_image_url' => getFullImageUrl($this->document_image?->original_url),
             'document' => new DocumentResource($this->document ?? []),
         ];
     }

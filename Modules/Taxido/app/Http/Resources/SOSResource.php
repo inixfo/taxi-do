@@ -21,7 +21,7 @@ class SOSResource extends BaseResource
             'title' => $this->title,
             'country_code' => $this->country_code,
             'phone' => $this->phone,
-            'sos_image_url' => $this->sos_image?->original_url
+            'sos_image_url' => getFullImageUrl($this->sos_image?->original_url)
         ];
     }
 }

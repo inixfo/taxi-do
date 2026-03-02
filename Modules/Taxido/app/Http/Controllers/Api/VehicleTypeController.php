@@ -61,7 +61,7 @@ class VehicleTypeController extends Controller
      */
     public function show(string $id)
     {
-        return $this->repository->findOrFail($id);
+        return new VehicleTypeResource($this->repository->findOrFail($id));
     }
 
     /**

@@ -25,8 +25,8 @@ class ServiceResource  extends BaseResource
       'is_primary' => $this->is_primary,
       'description' => $this->description,
       'status' => $this->status,
-      'service_image_url' => $this->service_image?->original_url,
-      'service_icon_url' => $this->service_icon?->original_url,
+      'service_image_url' => getFullImageUrl($this->service_image?->original_url),
+      'service_icon_url' => getFullImageUrl($this->service_icon?->original_url),
       'service_categories' => ServiceCategoryResource::collection($this->service_categories ?? []),
     ];
   }

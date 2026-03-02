@@ -23,7 +23,7 @@ class RentalVehicleResource extends BaseResource
             'name' => $this->name,
             'description' => $this->description,
             'vehicle_type_id' => $this->vehicle_type_id,
-            'normal_image_url' => $this->normal_image?->original_url,
+            'normal_image_url' => getFullImageUrl($this->normal_image?->original_url),
             'allow_with_driver' => $this->allow_with_driver,
             'fuel_type' => $this->fuel_type,
             'gear_type' => $this->gear_type,
@@ -38,7 +38,7 @@ class RentalVehicleResource extends BaseResource
             'currency_symbol' => $this->zones?->currency?->symbol,
             'driver' => [
                 'name' => $this->driver?->name,
-                'driver_profile_image_url' => $this->driver?->profile_image?->original_url,
+                'driver_profile_image_url' => getFullImageUrl($this->driver?->profile_image?->original_url),
                 'rating_count' => $this->driver?->rating_count,
                 'review_count' => $this->driver?->review_count,
             ],

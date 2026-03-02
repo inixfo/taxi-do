@@ -22,7 +22,7 @@ class PreferenceResource extends BaseResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'icon_image_url' => $this->icon_image?->original_url,
+            'icon_image_url' => getFullImageUrl($this->icon_image?->original_url),
             'price' => $this->pivot?->price,
         ];
     }

@@ -9,6 +9,7 @@ use App\Exceptions\ExceptionHandler;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Taxido\Repositories\Api\BannerRepository;
+use Modules\Taxido\Http\Resources\BannerResource;
 
 class BannerController extends Controller
 {
@@ -32,7 +33,8 @@ class BannerController extends Controller
         try {
 
             $banner = $this->filter($this->repository, $request);
-            return $banner->latest('created_at')->paginate($request->paginate ?? $banner->count() ?: null );
+            $banners = $banner->latest('created_at')->paginate($request->paginate ?? $banner->count() ?: null );
+            return BannerResource::collection($banners);
 
         } catch (Exception $e) {
 
@@ -61,7 +63,7 @@ class BannerController extends Controller
      */
     public function show(Banner $banner)
     {
-        return $this->repository->show($banner?->id);
+        return new BannerResource($this->repository->show($banner?->id));
     }
 
     /**

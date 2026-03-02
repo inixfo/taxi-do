@@ -22,7 +22,7 @@ class OnBoardingResource  extends BaseResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'onboarding_image_url' => $this->onboarding_image?->original_url,
+            'onboarding_image_url' => getFullImageUrl($this->onboarding_image?->original_url),
         ];
     }
 }

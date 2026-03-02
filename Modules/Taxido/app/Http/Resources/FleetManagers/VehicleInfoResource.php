@@ -26,7 +26,7 @@ class VehicleInfoResource  extends BaseResource
             'name' => $this->name,
             'description' => $this->description,
             'color' => $this->color,
-            'vehicle_type_image_url' => $this->vehicle?->vehicle_image?->original_url,
+            'vehicle_type_image_url' => getFullImageUrl($this->vehicle?->vehicle_image?->original_url),
             'plate_number' => $this->plate_number,
             'vehicle_type_id' => $this->vehicle_type_id,
             'driver_id' => $this->driver_id,
@@ -43,7 +43,7 @@ class VehicleInfoResource  extends BaseResource
                 'id' => $this->driver?->id,
 
                 'name' => $this->driver?->name,
-                'profile_image_url' => $this->driver?->profile_image?->original_url,
+                'profile_image_url' => getFullImageUrl($this->driver?->profile_image?->original_url),
             ];
         }
 

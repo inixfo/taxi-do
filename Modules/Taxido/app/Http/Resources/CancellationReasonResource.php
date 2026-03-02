@@ -21,7 +21,7 @@ class CancellationReasonResource extends BaseResource
             'title' => $this->title,
             'slug' => $this->slug,
             'status' => $this->status,
-            'icon_image_url' => $this->icon_image?->original_url,
+            'icon_image_url' => getFullImageUrl($this->icon_image?->original_url),
             'for' => $this->for,
             'ride_start' => $this->ride_start,
         ];

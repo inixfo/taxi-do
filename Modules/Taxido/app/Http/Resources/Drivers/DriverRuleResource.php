@@ -21,7 +21,7 @@ class DriverRuleResource  extends BaseResource
     return [
       'id' => $this->id,
       'status' => $this->status,
-      'document_image_url' => $this->document_image?->original_url,
+      'document_image_url' => getFullImageUrl($this->document_image?->original_url),
       'document' => new DocumentResource($this->document ?? []),
     ];
   }

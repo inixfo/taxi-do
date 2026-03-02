@@ -24,7 +24,7 @@ class FleetSelfResource  extends BaseResource
             'name' => $this->name,
             'role' => $this->role?->name,
             'email' => $this->email,
-            'profile_image_url' => $this->profile_image?->original_url,
+            'profile_image_url' => getFullImageUrl($this->profile_image?->original_url),
             'phone' => $this->phone,
             'is_verified' => $this->is_verified,
             'country_code' => $this->country_code,

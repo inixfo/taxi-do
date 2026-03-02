@@ -36,8 +36,8 @@ class HourlyPackageResource  extends BaseResource
                     'id' => $vehicleType?->id,
                     'name' => $vehicleType?->name,
                     'currency_symbol' => getCurrencySymbolByZoneId($request->zone_id),
-                    'vehicle_image_url' => $vehicleType?->vehicle_image?->original_url,
-                    'vehicle_map_icon_url' => $vehicleType?->vehicle_map_icon?->original_url,
+                    'vehicle_image_url' => getFullImageUrl($vehicleType?->vehicle_image?->original_url),
+                    'vehicle_map_icon_url' => getFullImageUrl($vehicleType?->vehicle_map_icon?->original_url),
                     'charges' => $this->calHourlyPackageVehicleTypePrice($vehicleType?->id, $this?->id, $request->zone_id),
                     'vehicle_type_zone' => getVehicleTypeZoneById($vehicleType?->id, $request->zone_id)
                 ];
